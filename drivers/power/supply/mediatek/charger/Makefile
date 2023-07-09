@@ -11,6 +11,20 @@
 # See http://www.gnu.org/licenses/gpl-2.0.html for more details.
 #
 
+ifeq ($(CONFIG_TARGET_PRODUCT_LANCELOTCOMMON),y)
+MTK_PLATFORM := $(subst ",,$(CONFIG_MTK_PLATFORM))
+$(info MTK_PLATFORM_ID is [${MTK_PLATFORM}])
+$(info MTK_CHARGER : TARGET PRODUCT is LANCELOT )
+export TARGET_PRODUCT_LANCELOT=y
+endif
+
+ifeq ($(CONFIG_TARGET_PRODUCT_MERLINCOMMON),y)
+MTK_PLATFORM := $(subst ",,$(CONFIG_MTK_PLATFORM))
+$(info MTK_PLATFORM_ID is [${MTK_PLATFORM}])
+$(info MTK_CHARGER : TARGET PRODUCT is MERLIN )
+export TARGET_PRODUCT_MERLIN=y
+endif
+
 MTK_PLATFORM := $(subst ",,$(CONFIG_MTK_PLATFORM))
 subdir-ccflags-y += -Werror
 subdir-ccflags-y += -I$(srctree)/drivers/misc/mediatek/include
